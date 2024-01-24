@@ -1,8 +1,4 @@
 import { useState, useEffect } from "react";
-import { Description } from "../components/Description/Description";
-import { Options } from "../components/Options/Options";
-import { Feedback } from "../components/Feedback/Feedback";
-import { Notification } from "../components/Notification/Notification";
 
 const App = () => {
   const [clicks, setClicks] = useState(() => {
@@ -12,17 +8,18 @@ const App = () => {
       return JSON.parse(savedClicks);
     }
 
-    return {
-      good: 0,
-      neutral: 0,
-      bad: 0,
-    };
+    return [
+      { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
+      { id: "id-2", name: "Hermione Kline", number: "443-89-12" },
+      { id: "id-3", name: "Eden Clements", number: "645-17-79" },
+      { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
+    ];
   });
 
   useEffect(() => {
     window.localStorage.setItem(
       "number-of-clicks",
-      JSON.stringify({ ...clicks })
+      JSON.stringify([...clicks])
     );
   }, [clicks]);
 
@@ -45,34 +42,12 @@ const App = () => {
   };
 
   return (
-    <>
-      <Description>
-        <h1 className="caption">Sip Happens Café</h1>
-        <p className="text-description">
-          Please leave your feedback about our service by selecting one of the
-          options below.
-        </p>
-      </Description>
-
-      <Options
-        value={clicks}
-        onUpdate={onLeaveFeedback}
-        onReset={onReset}
-        disabled={isVisible}
-      />
-      {totalFeedback > 0 ? (
-        <Feedback
-          value={clicks}
-          onUpdate={onLeaveFeedback}
-          onTotal={totalFeedback}
-          positiveFeedback={positiveFeedback}
-        />
-      ) : (
-        <Notification>
-          <p className="notification">No feedback yet</p>
-        </Notification>
-      )}
-    </>
+    <div>
+      <h1>Phonebook</h1>
+      <ContactForm />
+      <SearchBox />
+      <ContactList />
+    </div>
   );
 };
 
