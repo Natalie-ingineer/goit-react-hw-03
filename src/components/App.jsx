@@ -34,23 +34,23 @@ const App = () => {
     });
   };
 
-  let totalFeedback = clicks.good + clicks.neutral + clicks.bad;
-  let positiveFeedback = Math.round(
-    ((clicks.good + clicks.neutral) / totalFeedback) * 100
-  );
+  // let totalFeedback = clicks.good + clicks.neutral + clicks.bad;
+  // let positiveFeedback = Math.round(
+  //   ((clicks.good + clicks.neutral) / totalFeedback) * 100
+  // );
 
-  let isVisible = totalFeedback > 0;
+  // let isVisible = totalFeedback > 0;
 
-  const onReset = (option) => {
-    setClicks({ good: 0, neutral: 0, bad: 0 });
-  };
+  // const onReset = (option) => {
+  //   setClicks({ good: 0, neutral: 0, bad: 0 });
+  // };
 
   return (
     <div>
       <h1>Phonebook</h1>
       <ContactForm />
       <SearchBox />
-      <ContactList />
+      <ContactList onUpdate={onLeaveFeedback} />
     </div>
   );
 };
