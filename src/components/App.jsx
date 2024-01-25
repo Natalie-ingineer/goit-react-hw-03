@@ -18,6 +18,12 @@ export const App = () => {
   );
   console.log(visibleUsers);
 
+  const deleteUser = (userId) => {
+    setUsers((prevUsers) => {
+      return prevUsers.filter((user) => user.id !== userId);
+    });
+  };
+
   // const handlerChange = (evt) => {
   //   console.log(evt.target.value);
   //   setInputValue(evt.target.value);
@@ -66,7 +72,7 @@ export const App = () => {
       <h1>Phonebook</h1>
       {/* <ContactForm onSubmit={makePayment} /> */}
       <SearchBox value={nameFilter} onFilter={setNameFilter} />
-      <ContactList items={visibleUsers} />
+      <ContactList items={visibleUsers} onDelete={deleteUser} />
     </>
   );
 };
