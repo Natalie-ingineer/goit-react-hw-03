@@ -1,7 +1,8 @@
 import css from "./ContactForm.module.css";
 import { useId } from "react";
 
-export const ContactForm = ({ onSubmit }) => {
+export const ContactForm = ({ onAdd }) => {
+  const usernameFieldId = useId();
   // const handlerSubmit = (evt) => {
   //   evt.preventDefault();
   //   onSubmit(evt.target.elements.username.value);
@@ -14,11 +15,10 @@ export const ContactForm = ({ onSubmit }) => {
   //   </form>
   // );
 
-  const usernameFieldId = useId();
-
   const handlerSubmit = (evt) => {
     evt.preventDefault();
-    onSubmit(evt.target.elements.username.value);
+    onAdd(evt.target.elements.name.value);
+    console.log(onAdd);
     evt.target.reset();
   };
 
@@ -26,10 +26,10 @@ export const ContactForm = ({ onSubmit }) => {
     <form onSubmit={handlerSubmit}>
       <div>
         <label htmlFor={usernameFieldId}>Username</label>
-        <input type="text" name="username" id={usernameFieldId} />
+        <input type="text" name="name" id={usernameFieldId} />
       </div>
 
-      <button type="submit">Submit</button>
+      <button type="submit">Add user</button>
     </form>
   );
 };

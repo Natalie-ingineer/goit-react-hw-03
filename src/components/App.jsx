@@ -24,10 +24,19 @@ export const App = () => {
     });
   };
 
-  // const handlerChange = (evt) => {
-  //   console.log(evt.target.value);
-  //   setInputValue(evt.target.value);
-  // };
+  const addUser = (newUser, newNumber) => {
+    setUsers((prevUsers) => {
+      return [
+        ...prevUsers,
+        {
+          name: newUser,
+          number: newNumber,
+          id: Date.now(),
+        },
+      ];
+    });
+  };
+
   // const [users, setUsers] = useState(() => {
   //   const savedUsers = window.localStorage.getItem("number-of-clicks");
 
@@ -47,30 +56,10 @@ export const App = () => {
   //   window.localStorage.setItem("number-of-clicks", JSON.stringify([...users]));
   // }, [users]);
 
-  // const onLeaveFeedback = (option) => {
-  //   setUsers({
-  //     ...users,
-  //     [option]: users[option] + 1,
-  //   });
-  // };
-
-  // let totalFeedback = clicks.good + clicks.neutral + clicks.bad;
-  // let positiveFeedback = Math.round(
-  //   ((clicks.good + clicks.neutral) / totalFeedback) * 100
-  // );
-
-  // let isVisible = totalFeedback > 0;
-
-  // const onReset = (option) => {
-  //   setClicks({ good: 0, neutral: 0, bad: 0 });
-  // };
-  // const makePayment = (username) => {
-  //   console.log("makePayment:", username);
-  // };
   return (
     <>
       <h1>Phonebook</h1>
-      {/* <ContactForm onSubmit={makePayment} /> */}
+      <ContactForm onAdd={addUser} />
       <SearchBox value={nameFilter} onFilter={setNameFilter} />
       <ContactList items={visibleUsers} onDelete={deleteUser} />
     </>
