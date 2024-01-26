@@ -58,7 +58,7 @@ export const App = () => {
 
   return (
     <>
-      <h1>Phonebook</h1>
+      <h1 className="caption">Phonebook</h1>
       <ContactForm onAdd={addUser} />
       <SearchBox value={nameFilter} onFilter={setNameFilter} />
       <ContactList items={visibleUsers} onDelete={deleteUser} />

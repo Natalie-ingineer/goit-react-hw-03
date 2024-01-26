@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  width: 400px;
+  width: 250px;
   border: 3px solid coral;
   border-radius: 15px;
   padding: 10px;
@@ -14,7 +14,7 @@
 
 .userName,
 .userPhone {
-  font-size: 24px;
+  font-size: 16px;
   display: flex;
   align-items: center;
   font-weight: 700;
@@ -27,8 +27,8 @@
 
 .button {
   display: inline-block;
-  padding: 5px 20px;
-  font-size: 16px;
+  padding: 5px 15px;
+  font-size: 12px;
   font-weight: bold;
   text-align: center;
   text-decoration: none;
@@ -41,5 +41,5 @@
 
 .icon {
   fill: coral;
-  margin-right: 10px;
+  margin-right: 5px;
 }

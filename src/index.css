@@ -14,14 +14,7 @@
 }
 
 body {
-  border: 2px solid fuchsia;
-  border-radius: 30px;
-
   padding: 32px;
-  background-image: url(./img/2677347_result.jpg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: right;
 }
 
 h1,
@@ -49,7 +42,6 @@ img {
 .caption {
   font-size: 40px;
   font-weight: 700;
-  color: blueviolet;
 }
 
 .text-description {
