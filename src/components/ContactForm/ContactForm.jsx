@@ -1,35 +1,48 @@
-import css from "./ContactForm.module.css";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 import { useId } from "react";
+import css from "./ContactForm.module.css";
 
 export const ContactForm = ({ onAdd }) => {
   const usernameFieldId = useId();
-  // const handlerSubmit = (evt) => {
-  //   evt.preventDefault();
-  //   onSubmit(evt.target.elements.username.value);
-  //   evt.target.reset();
-  // };
-  // return (
-  //   <form onSubmit={handlerSubmit}>
-  //     <input type="text" name="username" />
-  //     <button type="submit">Submit</button>
-  //   </form>
-  // );
-
-  const handlerSubmit = (evt) => {
-    evt.preventDefault();
-    onAdd(evt.target.elements.name.value);
-    console.log(onAdd);
-    evt.target.reset();
-  };
+  const numberFieldId = useId();
 
   return (
-    <form onSubmit={handlerSubmit}>
-      <div>
-        <label htmlFor={usernameFieldId}>Username</label>
-        <input type="text" name="name" id={usernameFieldId} />
-      </div>
-
-      <button type="submit">Add user</button>
-    </form>
+    <Formik
+      initialValues={{ name: "", number: "" }}
+      onSubmit={(values, actions) => {
+        console.log(values);
+        onAdd({ id: Date.now(), ...values });
+        actions.resetForm();
+      }}
+    >
+      <Form className={css.form}>
+        <div className={css.formWrap}>
+          <label className={css.description} htmlFor={usernameFieldId}>
+            Username
+          </label>
+          <Field
+            className={css.fieldInput}
+            type="text"
+            name="name"
+            id={usernameFieldId}
+          ></Field>
+        </div>
+        <div className={css.formWrap}>
+          <label className={css.description} htmlFor={numberFieldId}>
+            Number
+          </label>
+          <Field
+            className={css.fieldInput}
+            type="number"
+            name="number"
+            id={numberFieldId}
+          ></Field>
+        </div>
+        <button className={css.button} type="submit">
+          Add user
+        </button>
+      </Form>
+    </Formik>
   );
 };

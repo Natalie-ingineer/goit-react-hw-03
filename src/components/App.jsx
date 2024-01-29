@@ -1,3 +1,4 @@
+// import { ContactForm } from "./ContactForm/ContactForm";
 import { ContactForm } from "./ContactForm/ContactForm";
 import { ContactList } from "./ContactList/ContactList";
 import { SearchBox } from "./SearchBox/SearchBox";
@@ -31,16 +32,9 @@ export const App = () => {
     });
   };
 
-  const addUser = (newUser, newNumber) => {
+  const addUser = (newUser) => {
     setUsers((prevUsers) => {
-      return [
-        ...prevUsers,
-        {
-          name: newUser,
-          number: newNumber,
-          id: Date.now(),
-        },
-      ];
+      return [...prevUsers, newUser];
     });
   };
 
@@ -52,6 +46,7 @@ export const App = () => {
     <>
       <h1 className="caption">Phonebook</h1>
       <ContactForm onAdd={addUser} />
+      {/* <ContactForm onAdd={addUser} /> */}
       <SearchBox value={nameFilter} onFilter={setNameFilter} />
       <ContactList items={visibleUsers} onDelete={deleteUser} />
     </>
