@@ -37,3 +37,8 @@
   border-radius: 15px; /* Закруглені кути */
   transition: background-color 0.3s ease; /* Плавна зміна колірного фону при наведенні */
 }
+
+.error {
+  font-size: 14px;
+  color: orangered;
+}

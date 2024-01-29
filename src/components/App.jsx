@@ -24,7 +24,6 @@ export const App = () => {
   const visibleUsers = users.filter((user) =>
     user.name.toLowerCase().includes(nameFilter.toLowerCase())
   );
-  console.log(visibleUsers);
 
   const deleteUser = (userId) => {
     setUsers((prevUsers) => {
@@ -46,7 +45,6 @@ export const App = () => {
     <>
       <h1 className="caption">Phonebook</h1>
       <ContactForm onAdd={addUser} />
-      {/* <ContactForm onAdd={addUser} /> */}
       <SearchBox value={nameFilter} onFilter={setNameFilter} />
       <ContactList items={visibleUsers} onDelete={deleteUser} />
     </>
