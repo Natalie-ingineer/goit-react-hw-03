@@ -2,7 +2,7 @@ import { BsPersonLinesFill } from "react-icons/bs";
 import { GiRotaryPhone } from "react-icons/gi";
 import css from "./Contact.module.css";
 
-export const Contact = ({ contact, phonenumber, onDeleteUser }) => {
+export const Contact = ({ contact, phonenumber, onDeleteUser, userId }) => {
   return (
     <div className={css.wraper}>
       <div className={css.infoWrap}>
@@ -14,7 +14,7 @@ export const Contact = ({ contact, phonenumber, onDeleteUser }) => {
         </p>
       </div>
       <div>
-        <button className={css.button} onClick={() => onDeleteUser(contact.id)}>
+        <button className={css.button} onClick={() => onDeleteUser(userId)}>
           Delete
         </button>
       </div>
